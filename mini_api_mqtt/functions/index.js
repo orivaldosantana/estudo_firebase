@@ -6,6 +6,14 @@ admin.initializeApp();
 const dbTodos = admin.firestore().collection("todos");
 const dbSensors = admin.firestore().collection("sensores");
 
+app.get("/", function (request, response) {
+ 
+  response. json(todos);
+  response.set('Content-Type', 'text/html');
+  response.send(Buffer.from('<h2>API Simples!</h2>'));
+
+})
+
 
 app.get("/todos", function (request, response) {
   dbTodos.get()
